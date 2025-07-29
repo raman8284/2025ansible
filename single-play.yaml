@@ -1,0 +1,21 @@
+---
+name: install nginx
+hosts: web
+become: true
+tasks:
+  - name: install nginx
+    apt:
+      name: nginx
+      state: present
+  - name: ensure nginx is running
+    service:
+      name: nginx
+      state: started
+      enabled: true
+  - name: ensures copy of index.html
+    copy:
+      src: /home/ubuntu/index.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: '0644'
