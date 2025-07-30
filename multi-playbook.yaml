@@ -45,6 +45,7 @@
         owner: root
         group: root
         mode: '0644'
+        force: yes
     - name: Allow HTTP
       ufw:
         rule: allow
