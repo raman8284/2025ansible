@@ -11,7 +11,7 @@
       service:
         name: nginx
         state: started
-        enables: true
+        enabled: true
     - name: ensures copy of index.html
       copy:
         src: /home/ubuntu/2025ansible/index.html
