@@ -14,7 +14,7 @@
         enabled: true
     - name: ensures copy of index.html
       copy:
-        src: /home/ubuntu/index.html
+        src: /home/ubuntu/2025ansible/index.html
         dest: /var/www/html/index.html
         owner: root
         group: root
