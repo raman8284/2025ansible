@@ -19,18 +19,11 @@
         owner: root
         group: root
         mode: '0644'
-    - name: set firewall rules
+    - name: Allow HTTP
       ufw:
         rule: allow
-        direction: in
-        from_ip: any
-        to_port: any
-        proto: any
-    - name: Enable UFW if not already enabled
-      ufw:
-        state: enabled
-        policy: allow
-
+        port: 80
+        proto: tcp
 
 - name: install nginx in db server
   hosts: db
@@ -52,15 +45,8 @@
         owner: root
         group: root
         mode: '0644'
-    - name: set firewall rules
+    - name: Allow HTTP
       ufw:
         rule: allow
-        direction: in
-        from_ip: any
-        to_port: any
-        proto: any
-    - name: Enable UFW if not already enabled
-      ufw:
-        state: enabled
-        policy: allow
-    
+        port: 80
+        proto: tcp
