@@ -41,7 +41,7 @@
     - name: ensures copy of index1.html in db server
       copy:
         src: /home/ubuntu/2025ansible/index1.html
-        dest: /var/www/html/index1.html
+        dest: /var/www/html/index.html
         owner: root
         group: root
         mode: '0644'
