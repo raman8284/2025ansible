@@ -22,7 +22,15 @@
     - name: set firewall rules
       ufw:
         rule: allow
-        name: Nginx Full
+        direction: in
+        from_ip: any
+        to_port: any
+        proto: any
+    - name: Enable UFW if not already enabled
+      ufw:
+        state: enabled
+        policy: allow
+
 ---
 - name: install nginx in db server
   hosts: db
@@ -44,7 +52,15 @@
         owner: root
         group: root
         mode: '0644'
-    - name: set firewall rules in db server
+    - name: set firewall rules
       ufw:
         rule: allow
-        name: Nginx Full
+        direction: in
+        from_ip: any
+        to_port: any
+        proto: any
+    - name: Enable UFW if not already enabled
+      ufw:
+        state: enabled
+        policy: allow
+    
