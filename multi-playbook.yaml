@@ -1,0 +1,50 @@
+---
+-  name: install nginx in web server
+   hosts: web
+   become: true
+   tasks:
+    - name: install nginx
+      apt:
+        name: nginx
+        state: present
+    - name: ensure nginx is running
+      service:
+        name: nginx
+        state: started
+        enables: true
+    - name: ensures copy of index.html
+      copy:
+        src: /home/ubuntu/2025ansible/index.html
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+        mode: '0644'
+    - name: set firewall rules
+      ufw:
+        rule: allow
+        name: 'Nginx Full'
+---
+- name: install nginx in db server
+  hosts: db
+  become: true
+  tasks:
+    - name: install nginx in db server
+      apt:
+        name: nginx
+        state: present
+    - name: ensure nginx is running in db server
+      service:
+        name: nginx
+        state: started
+        enabled: true
+    - name: ensures copy of index1.html in db server
+      copy:
+        src: /home/ubuntu/2025ansible/index1.html
+        dest: /var/www/html/index1.html
+        owner: root
+        group: root
+        mode: '0644'
+    - name: set firewall rules in db server
+      ufw:
+        rule: allow
+        name: 'Nginx Full'
