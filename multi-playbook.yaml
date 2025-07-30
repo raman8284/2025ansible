@@ -22,7 +22,7 @@
     - name: set firewall rules
       ufw:
         rule: allow
-        name: 'Nginx Full'
+        name: Nginx Full
 ---
 - name: install nginx in db server
   hosts: db
@@ -47,4 +47,4 @@
     - name: set firewall rules in db server
       ufw:
         rule: allow
-        name: 'Nginx Full'
+        name: Nginx Full
